@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2023"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@permutation/shared": ["packages/shared/src/index.ts"],
+      "@permutation/db": ["packages/db/src/index.ts"],
+      "@permutation/agent": ["packages/agent/src/index.ts"],
+      "@permutation/tools": ["packages/tools/src/index.ts"],
+      "@permutation/scheduler": ["packages/scheduler/src/index.ts"],
+      "@permutation/connectors": ["packages/connectors/src/index.ts"]
+    }
+  }
+}

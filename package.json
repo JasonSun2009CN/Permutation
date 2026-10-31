@@ -1,0 +1,51 @@
+{
+  "name": "permutation",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A calm desktop AI assistant that turns intentions into scheduled action.",
+  "license": "Apache-2.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "npm run dev -w @permutation/desktop",
+    "build": "npm run build -w @permutation/desktop",
+    "dist": "npm run build && npm run dist -w @permutation/desktop",
+    "typecheck": "tsc -p tsconfig.node.json --noEmit && tsc -p tsconfig.web.json --noEmit",
+    "verify": "npm run typecheck && npm test && npm run lint && npm run format:check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "rebuild:native": "electron-rebuild -f -w better-sqlite3",
+    "postinstall": "install-electron && npm run rebuild:native",
+    "setup": "install-electron && npm run rebuild:native",
+    "verify:notification": "electron scripts/verify-notification.cjs",
+    "verify:llm": "tsx scripts/verify-llm.ts"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^4.2.1",
+    "@eslint/js": "^10.0.0",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "electron": "^45.2.1",
+    "electron-builder": "^26.18.1",
+    "electron-vite": "^6.0.0",
+    "eslint": "^10.14.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.72.1",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}
